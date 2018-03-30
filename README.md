@@ -5,6 +5,7 @@ Great for parties.
 You will need:
 * Python.
 * FFmpeg.
+* VLC.
 
 Create a folder named videos and copy ffprobe.exe to the top-level directory.
 
