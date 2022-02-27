@@ -19,5 +19,5 @@ Edit file random_clip_generator.py to change:
 * The minimum clip duration in seconds. Recommended = 4.  
 * The maximum clip duration in seconds. Recommended = 8. (Greater may cause problems as people recognize the video and may ask you to change the audio to match the visuals.)
 
-Please feel free to create pull requests to add your own videos to the list of recommended (1080p or higher. Should be either colorful and fun or stylistic) or create your own branch with its own list that's relevant to you. 
+Please feel free to create pull requests to add your own videos to the list of recommended (1080p or higher. Should be either colorful and fun or stylistic), or create your own branch with its own list that's relevant to you. 
 
