@@ -3,5 +3,5 @@
 set generatedxml=%1
 shift
 
-vlc --no-video-title-show --fullscreen --no-qt-fs-controller --play-and-exit %generatedxml%
+"C:\Program Files\VideoLAN\VLC\vlc.exe" --no-video-title-show --fullscreen --no-qt-fs-controller --play-and-exit %generatedxml%
 
