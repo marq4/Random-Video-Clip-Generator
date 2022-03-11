@@ -7,9 +7,25 @@ https://www.youtube.com/watch?v=VDYMjvdCWpc
 https://www.youtube.com/watch?v=MCDXvmQzi-A 
 * Metronomy - The Look 
 https://www.youtube.com/watch?v=sFrNsSnk8GM 
+* Deftones - You've Seen The Butcher 
+https://www.youtube.com/watch?v=woAcXSMyCEw 
+* Learn to Fly - Foo Fighters Rockin'1000 
+https://www.youtube.com/watch?v=JozAmXo2bDE
+* My Ticket Home - Spit Not Chewed 
+https://www.youtube.com/watch?v=oB9QxMTx1Bs 
+* TOY - I'm Still Believing 
+https://www.youtube.com/watch?v=RS4vsK0S1cI 
+* Wage War - The River
+https://www.youtube.com/watch?v=IMyv2QJCyt4 
+* Vampire Weekend - Cousins 
+https://www.youtube.com/watch?v=1e0u11rgd9Q 
+* The 1975 - Love It If We Made It 
+https://www.youtube.com/watch?v=1Wl1B7DPegc 
+* Carousel Kings - Lock Meowt
+https://www.youtube.com/watch?v=1EGzg51dvp0 
 
 
-Pop [Urban/Trap/Reggaeton] (singing, dancing): 
+Pop [Urban/Trap/Reggaeton] (singing, dancing, rapping): 
 * Future - Life Is Good ft. Drake
 https://www.youtube.com/watch?v=l0U7SxXHkPY 
 * Bruno Mars - Thats What I Like 
@@ -29,4 +45,7 @@ Other/Animated/Stunts:
 https://www.youtube.com/watch?v=wycjnCCgUes 
 * OK Go - The One Moment 
 https://www.youtube.com/watch?v=QvW61K2s0tA 
-
+* OK Go - Obsession 
+https://www.youtube.com/watch?v=LgmxMuW6Fsc
+* The Horrors - Still Life 
+https://www.youtube.com/watch?v=sJQk0jDZx8o 
