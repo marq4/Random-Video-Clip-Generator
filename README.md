@@ -34,18 +34,3 @@ You will need:
     2. Type this in the command prompt: python random_clip_generator.py  
 
 Please feel free to create pull requests to add your own videos to the list of recommended (1080p or higher. Should be either colorful and fun or stylistic), or create your own branch with its own list that's relevant to you. 
-
-
-### Troubleshooting: ### 
-* Problem: ffprobe is not recognized as an internal or exernal command, operable program or batch file. 
-    * Solution: Install ffmpeg and restart your computer or at least re-open the command prompt. 
-* Problem: ValueError: invalid literal for int() with base 10: "'". 
-    * Cause: There's an invalid file inside videos subfolder. 
-    * Solution: 
-        * Verify script file sanitize_video_titles.py is not under videos subfolder, 
-        * Verify there are no non-video files (e.g.: mp4, mkv, webm) there either, 
-        * Verify no video file has an invalid file name (e.g.: spaces or special characters). 
-* Problem: The system cannot find the path specified. 
-    * Cause: Your VLC is not installed under C:\Program Files\VideoLAN\VLC. 
-    * Workaround: Check if the clips.xspf playlist file was created. If so you can double-click it and VLC will play the clips. 
-    * Solution: Edit exevlc.bat to specify the correct path to vlc.exe (e.g.: "C:\Program Files (x86)\VideoLANVLC\vlc.exe"). 
