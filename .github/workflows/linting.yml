@@ -37,4 +37,4 @@ jobs:
 
       - name: Isort.
         run: |
-          isort $(git ls-files '*.py')
+          isort --check $(git ls-files '*.py')
