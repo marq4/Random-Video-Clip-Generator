@@ -1,0 +1,42 @@
+name: Code quality.
+
+on: [push, pull_request]
+
+jobs:
+  code-imports-typing-style:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-versions: [ '3.10' ]
+    timeout-minutes: 8
+    steps:
+      - name: Checkout code.
+        uses: actions/checkout@v3
+
+      - name: Setup Python ${{ matrix.python-versions }}.
+        uses: actions/setup-python@v3
+        with:
+          python-versions: ${{ matrix.python-versions }}
+
+      - name: Install dependencies.
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint mypy isort
+
+      - name: Pylint.
+        run: |
+          echo 'Files to be linted: '
+          echo $(git ls-files '*.py')
+          pylint -v $(git ls-files '*.py')
+
+      - name: MyPy.
+        run: |
+          mypy \
+          sanitize_video_titles.py \
+          random_clip_generator.py
+
+      - name: Isort.
+        run: |
+          isort --diff |
+          sanitize_video_titles.py \
+          random_clip_generator.py
