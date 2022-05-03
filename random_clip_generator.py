@@ -2,10 +2,10 @@
 Random video clips player for Win10.
 """
 
+import os
 import random
 import subprocess
 import xml.etree.ElementTree as ET
-import os
 from subprocess import Popen
 
 XML_PLAYLIST_FILE = 'clips.xspf'
