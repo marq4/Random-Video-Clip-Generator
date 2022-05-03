@@ -1,4 +1,4 @@
-# Random Clip Generator (Windows) 
+# Random Video Clip Generator (Windows) 
 Plays random sections of videos for background visual noise.
 Great for parties.
 
