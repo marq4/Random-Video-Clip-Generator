@@ -37,6 +37,4 @@ jobs:
 
       - name: Isort.
         run: |
-          isort --diff |
-          sanitize_video_titles.py \
-          random_clip_generator.py
+          isort --diff $(git ls-files '*.py')

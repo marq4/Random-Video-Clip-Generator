@@ -5,3 +5,6 @@
 .pytest_cache
 __pycache__
 .vscode
+*.mp4
+*.webm
+*.mkv
