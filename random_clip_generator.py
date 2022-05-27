@@ -7,6 +7,7 @@ import sys
 import xml.etree.ElementTree as ET
 from subprocess import Popen
 
+
 XML_PLAYLIST_FILE = 'clips.xspf'
 SUBFOLDER = 'videos'
 NUMBER_OF_CLIPS = 5
@@ -15,7 +16,6 @@ INTERVAL_MAX = 8
 CURRENT_DIRECTORY = os.path.dirname( os.path.abspath(__file__) )
 
 
-# TEST?
 def prepend_line(filename: str, line: str) -> None:
     """ Append line to beginning of file. """
     assert filename, f"Cannot prepend line: '{line}' to invalid {filename}. "
@@ -50,7 +50,7 @@ def get_video_duration(num_to_log: int, video: str) -> int:
     ffprobe_str = "ffprobe -v error -select_streams v:0 \
         -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1"
     command = f"{ffprobe_str} {video} "
-    with Popen(command, stdout=subprocess.PIPE, shell=True) as process:
+    with Popen(command, stdout=subprocess.PIPE) as process:
         (out, err) = process.communicate()
     if err:
         print(f"Process error: [{str(err)}]. Iteration: {num_to_log}. ")
@@ -60,12 +60,11 @@ def get_video_duration(num_to_log: int, video: str) -> int:
     return seconds
 
 
-# TEST?
 def choose_starting_point(video_length: int) -> int:
     """ Choose beginning of clip.
     :return: Starting point from beginning of video to end of video - max. """
     assert video_length > 0
-    return random.randint(0, int(video_length) - INTERVAL_MAX)
+    return random.randint(0, video_length - INTERVAL_MAX)
 
 
 def add_clip_to_tracklist(track_list: ET.Element, \
