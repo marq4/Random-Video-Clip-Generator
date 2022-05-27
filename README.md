@@ -8,6 +8,9 @@ You will need:
 * VLC.
 * The videos have to be locally available. 
 
+### Docker alternative: ###
+[Docker](https://github.com/marq4/Random-Video-Clip-Generator-Docker/ "Docker")
+
 ### How to use: ### 
 1. Install ffmpeg by following this guide: https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows 
 2. Install python by following this guide: https://phoenixnap.com/kb/how-to-install-python-3-windows 
