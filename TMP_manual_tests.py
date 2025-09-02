@@ -62,6 +62,7 @@ def main() -> None:
         print(f"YouTube API key not found on OS environment variables. ")
         exit(1)
     test_verify_videos_exist(google_api_key)
+    assert test_invalid_url_should_fail(google_api_key) == False
 #
 
 if __name__ == '__main__':
