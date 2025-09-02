@@ -29,7 +29,7 @@ def check_response_valid(response: str) -> bool:
 def test_invalid_url_should_fail() -> bool:
     """ Negative test to avoid false positives. """
     non_existent_youtube_video_id = "09vuCByb6js"
-    response = get_response(GOOGLE_API_KEY, non_existent_youtube_video_id)
+    response = get_response(non_existent_youtube_video_id)
     return check_response_valid(response)
 #
 
@@ -62,7 +62,7 @@ def test_verify_videos_exist() -> bool:
     videos = get_list_of_videos()
     ids = transform_into_list_of_ids(videos)
     for video_id in ids:
-        response = get_response(GOOGLE_API_KEY, video_id)
+        response = get_response(video_id)
         if not check_response_valid(response):
             return False
     return True
