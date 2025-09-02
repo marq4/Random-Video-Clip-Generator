@@ -7,7 +7,7 @@ import pytest
 from youtube_utils import GOOGLE_API_KEY, verify_videos_exist, invalid_url_should_fail
 
 
-@pyest.mark.integration
+@pytest.mark.integration
 def test_videos_exist() -> bool:
     """
     Goes to YouTube and checks if videos listed in music video list test file exist.
