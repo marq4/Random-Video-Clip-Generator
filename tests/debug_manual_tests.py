@@ -1,5 +1,4 @@
 """
-Verify video URLs are valid and videos exist.
 Call this script in case of problems with Pytest.
 Cannot be executed locally as the Google API key is a secret stored in GitHub.
 """

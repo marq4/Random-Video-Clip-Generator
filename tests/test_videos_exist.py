@@ -1,11 +1,9 @@
 """
 Verify video URLs are valid and videos exist.
 No main, Pytest will run all functions that stat witg 'test'.
-Cannot be executed locally as the Google API key is a secret stored in GitHub.
 """
 
 import os
-import sys
 import requests
 
 
@@ -74,4 +72,3 @@ def test_verify_videos_exist() -> bool:
             return False
     return True
 #
-
