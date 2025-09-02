@@ -48,4 +48,4 @@ jobs:
         env:
           GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
-          python tests/debug_manual_tests.py
+          python debug_manual_tests.py

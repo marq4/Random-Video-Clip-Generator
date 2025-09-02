@@ -1,14 +1,11 @@
-"""
-Call this script in case of problems with Pytest.
-Cannot be executed locally as the Google API key is a secret stored in GitHub.
-"""
+""" Common module for both Pytest and debug_manual tests. """
 
-import os
-import sys
 import requests
+from typing import List
 
 
-API = 'https://www.googleapis.com/youtube/v3/videos'
+API = "https://www.googleapis.com/youtube/v3/videos"
+
 
 def get_response(google_api_key: str, video_id: str) -> str:
     """ Call YouTube API. """
@@ -22,13 +19,6 @@ def check_response_valid(response: str) -> bool:
     if len(response.json()['items']) < 1:
         return False
     return True
-#
-
-def invalid_url_should_fail(google_api_key: str) -> bool:
-    """ Negative test to avoid false positives. """
-    non_existent_youtube_video_id = "09vuCByb6js"
-    response = get_response(google_api_key, non_existent_youtube_video_id)
-    return check_response_valid(response)
 #
 
 def get_list_of_videos() -> list:
@@ -68,24 +58,9 @@ def verify_videos_exist(google_api_key: str) -> bool:
     return True
 #
 
-def main() -> None:
-    """
-    * Get KEY env var.
-    * Execute tests.
-    """
-    google_api_key = os.environ.get('GOOGLEAPIYOUTUBEKEY')
-    if not google_api_key:
-        print('YouTube API key not found on OS environment variables. ')
-        sys.exit(1)
-    if verify_videos_exist(google_api_key):
-        print('Success: all YouTube videos listed were found. ')
-    else:
-        print('Failure: NOT all YouTube videos listed were found. ')
-    if invalid_url_should_fail(google_api_key) is False:
-        print('Success: Negative test (invalid URL) completed as expected. ')
-    else:
-        print('Failure: invalid URL should fail! ')
+def invalid_url_should_fail(google_api_key: str) -> bool:
+    """ Negative test to avoid false positives. """
+    non_existent_youtube_video_id = "09vuCByb6js"
+    response = get_response(google_api_key, non_existent_youtube_video_id)
+    return check_response_valid(response)
 #
-
-if __name__ == '__main__':
-    main()
