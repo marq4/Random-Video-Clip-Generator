@@ -1,6 +1,7 @@
 """
 Verify video URLs are valid and videos exist.
 Call this script in case of problems with Pytest.
+Cannot be executed locally as the Google API key is a secret stored in GitHub.
 """
 
 import os
@@ -28,7 +29,6 @@ def invalid_url_should_fail(google_api_key: str) -> bool:
     """ Negative test to avoid false positives. """
     non_existent_youtube_video_id = "09vuCByb6js"
     response = get_response(google_api_key, non_existent_youtube_video_id)
-    print(f"{response.status_code=}")#TMP: should be 400!!
     return check_response_valid(response)
 #
 

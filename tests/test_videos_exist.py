@@ -1,6 +1,7 @@
 """
 Verify video URLs are valid and videos exist.
 No main, Pytest will run all functions that stat witg 'test'.
+Cannot be executed locally as the Google API key is a secret stored in GitHub.
 """
 
 import os
@@ -11,6 +12,12 @@ import requests
 API = 'https://www.googleapis.com/youtube/v3/videos'
 GOOGLE_API_KEY = os.environ.get('GOOGLEAPIYOUTUBEKEY')
 
+def test_google_api_key_available() -> bool:
+    """ Make sure Google API key is available to avoid obsure 400 errors later. """
+    if GOOGLE_API_KEY is not None:
+        return True
+    return False
+#
 
 def get_response(video_id: str) -> str:
     """ Call YouTube API. """
