@@ -37,9 +37,15 @@ jobs:
         if: contains(steps.changed-files.outputs.modified_files, 'List.md')
         run: echo ">>> Music video list modified!"
 
-      - name: Verify URLs are valid and videos exist.
+      - name: Verify URLs are valid and videos exist using Pytest.
         env: 
           GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
           pytest -vvv tests/test_videos_exist.py 
-          #python tests/debug_manual_tests.py # TODO: execute this IF pytest fails.
+
+      - name: Run debug script if Pytest fails.
+        if: failure()
+        env:
+          GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
+        run: |
+          python tests/debug_manual_tests.py
