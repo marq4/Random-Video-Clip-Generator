@@ -1,13 +1,19 @@
-""" Verify video URLs are valid and videos exist. """
+"""
+Verify video URLs are valid and videos exist.
+Call this script in case of problems with Pytest.
+"""
 
-import requests
 import os
+import sys
+import requests
+
 
 API = 'https://www.googleapis.com/youtube/v3/videos'
 
 def get_response(google_api_key: str, video_id: str) -> str:
     """ Call YouTube API. """
-    response = requests.get(f"{API}?id={video_id}&part=id&key={google_api_key}")
+    call_string = f"{API}?id={video_id}&part=id&key={google_api_key}"
+    response = requests.get(call_string, timeout=6)
     return response
 #
 
@@ -18,7 +24,7 @@ def check_response_valid(response: str) -> bool:
     return True
 #
 
-def test_invalid_url_should_fail(google_api_key: str) -> bool:
+def invalid_url_should_fail(google_api_key: str) -> bool:
     """ Negative test to avoid false positives. """
     non_existent_youtube_video_id = "09vuCByb6js"
     response = get_response(google_api_key, non_existent_youtube_video_id)
@@ -28,7 +34,7 @@ def test_invalid_url_should_fail(google_api_key: str) -> bool:
 def get_list_of_videos() -> list:
     """ Read from YouTube music video list text file. """
     video_list = []
-    with open('List.md', 'r') as video_list_text_file:
+    with open('List.md', 'r', encoding='ut8-8') as video_list_text_file:
         for line in video_list_text_file.readlines():
             if line.startswith('https'):
                 video_list.append(line.rstrip())
@@ -49,7 +55,7 @@ def transform_into_list_of_ids(video_list: list) -> list:
     return id_list
 #
 
-def test_verify_videos_exist(google_api_key: str) -> bool:
+def verify_videos_exist(google_api_key: str) -> bool:
     """ Get all video URLs in a list. Check each one. """
     videos = get_list_of_videos()
     ids = transform_into_list_of_ids(videos)
@@ -69,18 +75,17 @@ def main() -> None:
     """
     google_api_key = os.environ.get('GOOGLEAPIYOUTUBEKEY')
     if not google_api_key:
-        print(f"YouTube API key not found on OS environment variables. ")
-        exit(1)
-    if test_verify_videos_exist(google_api_key):
+        print('YouTube API key not found on OS environment variables. ')
+        sys.exit(1)
+    if verify_videos_exist(google_api_key):
         print('Success: all YouTube videos listed were found. ')
     else:
         print('Failure: NOT all YouTube videos listed were found. ')
-    if test_invalid_url_should_fail(google_api_key) == False:
-        print('Success: Negative test (invalid URL) failed successfully. ')
+    if invalid_url_should_fail(google_api_key) is False:
+        print('Success: Negative test (invalid URL) completed as expected. ')
     else:
         print('Failure: invalid URL should fail! ')
 #
 
 if __name__ == '__main__':
     main()
-
