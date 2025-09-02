@@ -1,8 +1,8 @@
 """ Common module for both Pytest and debug_manual tests. """
 
-import requests
 import os
 from typing import List
+import requests
 
 
 API = "https://www.googleapis.com/youtube/v3/videos"
@@ -23,7 +23,7 @@ def check_response_valid(response: str) -> bool:
     return True
 #
 
-def get_list_of_videos() -> list:
+def get_list_of_videos() -> list[str]:
     """ Read from YouTube music video list text file. """
     video_list = []
     with open('List.md', 'r', encoding='utf-8') as video_list_text_file:
@@ -33,7 +33,7 @@ def get_list_of_videos() -> list:
     return video_list
 #
 
-def transform_into_list_of_ids(video_list: list) -> list:
+def transform_into_list_of_ids(video_list: list) -> list[str]:
     """ Parse URLs into just the YouTube video ids. """
     id_list = []
     pattern = 'v='
