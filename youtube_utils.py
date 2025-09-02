@@ -23,7 +23,7 @@ def check_response_valid(response: str) -> bool:
     return True
 #
 
-def get_list_of_videos() -> list[str]:
+def get_list_of_videos() -> List[str]:
     """ Read from YouTube music video list text file. """
     video_list = []
     with open('List.md', 'r', encoding='utf-8') as video_list_text_file:
@@ -33,7 +33,7 @@ def get_list_of_videos() -> list[str]:
     return video_list
 #
 
-def transform_into_list_of_ids(video_list: list) -> list[str]:
+def transform_into_list_of_ids(video_list: list) -> List[str]:
     """ Parse URLs into just the YouTube video ids. """
     id_list = []
     pattern = 'v='
