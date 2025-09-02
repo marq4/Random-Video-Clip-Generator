@@ -5,6 +5,26 @@ import os
 
 API = 'https://www.googleapis.com/youtube/v3/videos'
 
+def get_response(google_api_key: str, video_id: str) -> str:
+    """ Call YouTube API. """
+    response = requests.get(f"{API}?id={video_id}&part=id&key={google_api_key}")
+    return response
+#
+
+def check_response_valid(response: str) -> bool:
+    """ Valid responses have at least one item. """
+    if len(response.json()['items']) < 1:
+        return False
+    return True
+#
+
+def test_invalid_url_should_fail(google_api_key: str) -> bool:
+    """ Negative test to avoid false positives. """
+    non_existent_youtube_video_id = "09vuCByb6js"
+    response = get_response(google_api_key, non_existent_youtube_video_id)
+    return check_response_valid(response):
+#
+
 def test_verify_videos_exist(google_api_key: str) -> bool:
     """ Get all video URLs in a list. Check each one. """
     videos = []
@@ -25,11 +45,10 @@ def test_verify_videos_exist(google_api_key: str) -> bool:
     #print(f"{ids=}")#TMP
     #ids.append('s76dc8udch98d') #TMP: should fail. TODO: negative test.  
     for video_id in ids:
-        response = requests.get(f"{API}?id={video_id}&part=id&key={google_api_key}")
-        #print(f"For {video_id} got: {response.json()['items'][0]}")#TMP
-        if len(response.json()['items']) < 1:
+        response = get_response(google_api_key, video_id)
+        if not check_response_valid(response):
             return False
-        #print(f"For {video_id} got: {response.status_code}")#TMP: always returns 200.
+        print(f"YouTube video found: {video_id}")#TMP: I just want to verify it is really working.    
     return True
 #
 
