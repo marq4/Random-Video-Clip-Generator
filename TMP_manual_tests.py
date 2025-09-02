@@ -39,7 +39,7 @@ def main() -> None:
     * Execute test.
     """
     google_api_key = os.environ.get('GOOGLEAPIYOUTUBEKEY')
-    if not KEY:
+    if not google_api_key:
         print(f"YouTube API key not found on OS environment variables. ")
         exit(1)
     test_verify_videos_exist(google_api_key)
