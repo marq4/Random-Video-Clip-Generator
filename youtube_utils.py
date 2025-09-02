@@ -1,10 +1,12 @@
 """ Common module for both Pytest and debug_manual tests. """
 
 import requests
+import os
 from typing import List
 
 
 API = "https://www.googleapis.com/youtube/v3/videos"
+GOOGLE_API_KEY = os.environ["GOOGLEAPIYOUTUBEKEY"]
 
 
 def get_response(google_api_key: str, video_id: str) -> str:

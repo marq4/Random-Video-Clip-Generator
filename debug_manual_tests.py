@@ -4,8 +4,7 @@ Cannot be executed locally as the Google API key is a secret stored in GitHub.
 """
 
 import sys
-from __init__ import GOOGLE_API_KEY
-from youtube_utils import verify_videos_exist, invalid_url_should_fail
+from youtube_utils import GOOGLE_API_KEY, verify_videos_exist, invalid_url_should_fail
 
 
 def main() -> None:
