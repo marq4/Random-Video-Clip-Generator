@@ -6,28 +6,36 @@ jobs:
   video-exists-test:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    strategy:
+      matrix:
+        python-versions: [ '3.10' ]
     steps:
       - name: Checkout code.
         uses: actions/checkout@v3
+
+      - name: Setup Python ${{ matrix.python-versions }}.
+        uses: actions/setup-python@v3
+        with:
+          python-versions: ${{ matrix.python-versions }}
 
       - name: Get changed files.
         id: changed-files
         uses: tj-actions/changed-files@v22.1
 
-      - name: TMP list all changed files
+      - name: List all changed files.
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed!!!"
+            echo ">>> $file was changed."
           done
 
-      #- name: TEMP check if List.md changed...
-      #  if: contains(steps.changed-files.outputs.modified_files, 'List.md')
-      #  run: echo List modified!
+      - name: Check if List.md changed.
+        if: contains(steps.changed-files.outputs.modified_files, 'List.md')
+        run: echo ">>> Music video list modified!"
 
-      # get modified lines
-      # extract new URLs and store them in list
-      # Execute pytest foreach new url 
+      - name: Verify URLs are valid and videos exist.
+        env: 
+          KEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
+        run: |
+          #pytest tests/test_video_exists.py
+          python tests/TMP_manual_tests.py
 
-      #- name: Verify URL is valid and video exists.
-      #  run: |
-      #    pytest tests/test_video_exists.py --video_url="%%%"
