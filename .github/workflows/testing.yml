@@ -41,7 +41,7 @@ jobs:
         env: 
           GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
-          pytest -vvv tests/test_videos_exist.py 
+          PYTHONPATH=. pytest -vvv tests/test_videos_exist.py 
 
       - name: Run debug script if Pytest fails.
         if: failure()
