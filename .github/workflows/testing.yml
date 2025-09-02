@@ -42,5 +42,5 @@ jobs:
           GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
           #pytest tests/test_video_exists.py
-          python TMP_manual_tests.py
+          python tests/DEBUG_manual_tests.py
 
