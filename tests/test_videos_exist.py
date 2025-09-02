@@ -4,7 +4,9 @@ No main, Pytest will run all functions that stat witg 'test'.
 """
 
 import pytest
-from youtube_utils import GOOGLE_API_KEY, verify_videos_exist, invalid_url_should_fail
+
+from youtube_utils import (GOOGLE_API_KEY, invalid_url_should_fail,
+                           verify_videos_exist)
 
 
 @pytest.mark.integration

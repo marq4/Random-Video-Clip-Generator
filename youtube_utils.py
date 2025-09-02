@@ -2,8 +2,8 @@
 
 import os
 from typing import List
-import requests
 
+import requests
 
 API = "https://www.googleapis.com/youtube/v3/videos"
 GOOGLE_API_KEY = os.environ["GOOGLEAPIYOUTUBEKEY"]
