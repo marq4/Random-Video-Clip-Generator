@@ -4,9 +4,8 @@ import requests
 import os
 
 API = 'https://www.googleapis.com/youtube/v3/videos'
-KEY = None
 
-def test_verify_videos_exist() -> bool:
+def test_verify_videos_exist(google_api_key: str) -> bool:
     """ Get all video URLs in a list. Check each one. """
     videos = []
     with open('List.md', 'r') as video_list_text_file:
@@ -26,7 +25,7 @@ def test_verify_videos_exist() -> bool:
     #print(f"{ids=}")#TMP
     #ids.append('s76dc8udch98d') #TMP: should fail. TODO: negative test.  
     for video_id in ids:
-        response = requests.get(f"{API}?id={video_id}&part=id&key={KEY}")
+        response = requests.get(f"{API}?id={video_id}&part=id&key={google_api_key}")
         #print(f"For {video_id} got: {response.json()['items'][0]}")#TMP
         if len(response.json()['items']) < 1:
             return False
@@ -39,14 +38,13 @@ def main() -> None:
     * Get KEY env var.
     * Execute test.
     """
-    KEY = os.environ.get('GOOGLEAPIYOUTUBEKEY')
+    google_api_key = os.environ.get('GOOGLEAPIYOUTUBEKEY')
     if not KEY:
         print(f"YouTube API key not found on OS environment variables. ")
         exit(1)
-    test_verify_videos_exist()
+    test_verify_videos_exist(google_api_key)
 #
 
 if __name__ == '__main__':
-    print(f"{KEY=}")#TMP
     main()
 
