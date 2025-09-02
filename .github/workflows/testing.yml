@@ -41,5 +41,5 @@ jobs:
         env: 
           GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
-          #pytest tests/test_videos_exist.py
-          python tests/debug_manual_tests.py # TODO: execute this IF pytest fails.
+          pytest tests/test_videos_exist.py
+          #python tests/debug_manual_tests.py # TODO: execute this IF pytest fails.
