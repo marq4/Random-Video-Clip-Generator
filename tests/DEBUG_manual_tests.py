@@ -34,7 +34,7 @@ def invalid_url_should_fail(google_api_key: str) -> bool:
 def get_list_of_videos() -> list:
     """ Read from YouTube music video list text file. """
     video_list = []
-    with open('List.md', 'r', encoding='ut8-8') as video_list_text_file:
+    with open('List.md', 'r', encoding='utf-8') as video_list_text_file:
         for line in video_list_text_file.readlines():
             if line.startswith('https'):
                 video_list.append(line.rstrip())
