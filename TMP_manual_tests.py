@@ -22,7 +22,7 @@ def test_invalid_url_should_fail(google_api_key: str) -> bool:
     """ Negative test to avoid false positives. """
     non_existent_youtube_video_id = "09vuCByb6js"
     response = get_response(google_api_key, non_existent_youtube_video_id)
-    return check_response_valid(response):
+    return check_response_valid(response)
 #
 
 def test_verify_videos_exist(google_api_key: str) -> bool:
