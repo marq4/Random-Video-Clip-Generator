@@ -1,0 +1,5 @@
+extends: default
+
+rules:
+  new-line-at-end-of-file: disable
+  empty-lines: disable

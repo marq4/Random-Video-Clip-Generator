@@ -35,4 +35,3 @@ jobs:
         if: failure()
         run: |
           python debug_manual_tests.py
-

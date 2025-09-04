@@ -13,4 +13,3 @@ jobs:
 
       - name: Lint YAML files.
         uses: frenck/action-yamllint@v1
-
