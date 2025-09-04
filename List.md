@@ -53,3 +53,5 @@ https://www.youtube.com/watch?v=LgmxMuW6Fsc
 https://www.youtube.com/watch?v=sJQk0jDZx8o 
 * RÜFÜS DU SOL - Innerbloom
 https://www.youtube.com/watch?v=Tx9zMFodNtA
+* Tame Impala - End Of Summer
+https://www.youtube.com/watch?v=ulk0UfItyxI
