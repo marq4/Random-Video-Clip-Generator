@@ -1,0 +1,11 @@
+---
+name: Check if music video URLs are valid once per month.
+
+on:
+  schedule:
+    # 2am of the 15th:
+    - cron: "0 2 15 * *"
+
+jobs:
+  call-ci:
+    uses: ./.github/workflows/ci.yml

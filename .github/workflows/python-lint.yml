@@ -1,3 +1,4 @@
+---
 name: Code quality.
 
 on: [push, pull_request]
@@ -11,12 +12,12 @@ jobs:
     timeout-minutes: 8
     steps:
       - name: Checkout code.
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python ${{ matrix.python-versions }}.
         uses: actions/setup-python@v3
         with:
-          python-versions: ${{ matrix.python-versions }}
+          python-version: ${{ matrix.python-versions }}
 
       - name: Install dependencies.
         run: |

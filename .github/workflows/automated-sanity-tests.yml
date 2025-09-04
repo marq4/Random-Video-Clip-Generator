@@ -1,0 +1,31 @@
+---
+name: Automated sanity tests.
+
+on: [push, pull_request]
+
+jobs:
+  pre-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code.
+        uses: actions/checkout@v4
+
+      - name: Get changed files.
+        id: changed-files
+        uses: tj-actions/changed-files@v22.1
+
+      - name: List all updated files.
+        run: |
+          for file in ${{ steps.changed-files.otputs.all_changed_files }}
+          do
+            echo ">>> $file was updated. "
+          done
+
+      - name: Check if List.md changed.
+        if: contains(steps.changed-files.outputs.modified_files, 'List.md')
+        run: |
+          echo ">>> Music video list was modified!"
+
+  call-ci:
+    uses: ./.github/workflows/ci.yml
