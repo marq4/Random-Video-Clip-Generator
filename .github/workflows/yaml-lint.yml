@@ -1,7 +1,7 @@
 ---
 name: Lint YAML.
 
-on: [ push ]
+on: [push]
 
 jobs:
   lint-yaml:
@@ -13,3 +13,4 @@ jobs:
 
       - name: Lint YAML files.
         uses: frenck/action-yamllint@v1
+

@@ -1,15 +1,17 @@
 ---
 name: Common Continuous Integration code.
 
-on: [ workflow_call ]
+on: [workflow_call]
 
 jobs:
   videos-exist-test:
     runs-on: ubuntu-latest
+    env:
+      GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
     timeout-minutes: 12
     strategy:
       matrix:
-        python-versions: [ '3.10' ]
+        python-versions: ['3.10']
 
     steps:
       - name: Checkout code.
@@ -26,14 +28,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Verify URLs are valid and videos exist using Pytest.
-        env:
-          GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
           PYTHONPATH=. pytest -vvv tests/test_videos_exist.py
 
       - name: Run debug script if Pytest fails.
         if: failure()
-        env:
-          GOOGLEAPIYOUTUBEKEY: ${{ secrets.GOOGLEAPIYOUTUBEKEY }}
         run: |
           python debug_manual_tests.py
+

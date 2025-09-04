@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-versions: [ '3.10' ]
+        python-versions: ['3.10']
     timeout-minutes: 8
     steps:
       - name: Checkout code.
@@ -39,3 +39,4 @@ jobs:
       - name: Import ordering.
         run: |
           isort --check .
+
